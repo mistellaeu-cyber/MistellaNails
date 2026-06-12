@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Design Catalog | Mistella 🌙</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mauve:#2a1f24; --rose:#d4a5a5; --gold:#c9963a; --gold-lt:#e8d5a3;
+  --cream:#f5f0e8; --ink:#1a1410; --bg:#8d7468; --border:rgba(201,150,58,0.25);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; font-weight:300; background:var(--bg); color:var(--cream); overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+img { max-width:100%; display:block; }
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 40px; background:rgba(42,31,36,0.94);
+  backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,150,58,0.15);
+  gap:12px; flex-wrap:wrap;
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:4px;
+  color:var(--rose); display:flex; align-items:center; gap:10px;
+}
+.logo-circle {
+  border-radius:50%; object-fit:cover; height:38px; width:38px;
+  border:1px solid var(--gold); background:var(--bg);
+  box-shadow:0 0 0 3px rgba(201,150,58,0.15);
+}
+.nav-right { display:flex; align-items:center; gap:14px; }
+.lang-toggle { display:flex; border:1px solid rgba(245,240,232,0.25); border-radius:2px; overflow:hidden; }
+.lang-btn {
+  padding:6px 12px; font-size:11px; letter-spacing:1.5px; background:transparent;
+  border:none; cursor:pointer; color:rgba(245,240,232,0.5); font-family:'DM Sans',sans-serif;
+}
+.lang-btn.active { background:var(--gold); color:var(--mauve); font-weight:500; }
+.back-link {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); border:1px solid var(--gold); padding:8px 18px; transition:all 0.2s;
+}
+.back-link:hover { background:var(--gold); color:var(--mauve); }
+.moon {
+  position:fixed; top:-60px; right:-60px; width:340px; height:340px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, var(--gold), #8a6010);
+  opacity:0.12; z-index:-1; pointer-events:none;
+  animation:moonpulse 6s ease-in-out infinite;
+}
+@keyframes moonpulse {
+  0%,100% { transform:scale(1); opacity:0.12; }
+  50% { transform:scale(1.06); opacity:0.16; }
+}
+header { padding:150px 40px 50px; text-align:center; }
+.eyebrow { font-size:10px; letter-spacing:5px; text-transform:uppercase; color:var(--gold-lt); margin-bottom:16px; }
+h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,6vw,56px); font-weight:300; line-height:1.1; }
+h1 em { font-style:italic; color:var(--gold-lt); }
+.divider { width:48px; height:1px; background:var(--gold); margin:24px auto; }
+.header-sub { font-size:14px; color:rgba(245,240,232,0.8); max-width:480px; margin:0 auto; line-height:1.8; }
+.catalog {
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));
+  gap:28px; padding:30px 40px 90px; max-width:1200px; margin:0 auto;
+}
+.set-card {
+  background:var(--cream); color:var(--ink); border:1px solid var(--border);
+  overflow:hidden; transition:transform 0.3s ease, box-shadow 0.3s ease;
+  display:flex; flex-direction:column;
+}
+.set-card:hover { transform:translateY(-4px); box-shadow:0 20px 60px rgba(26,20,16,0.3); }
+
+/* ── CAROUSEL ── */
+.carousel { position:relative; }
+.slides {
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none;
+}
+.slides::-webkit-scrollbar { display:none; }
+.slide {
+  flex:0 0 100%; scroll-snap-align:center;
+  position:relative; height:420px; overflow:hidden;
+}
+.slide .blur-bg {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; filter:blur(22px) brightness(0.8) saturate(1.1);
+  transform:scale(1.2);
+}
+.slide .fg {
+  position:relative; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+}
+.dots {
+  position:absolute; bottom:14px; left:0; right:0;
+  display:flex; justify-content:center; gap:8px; z-index:2;
+}
+.dot {
+  width:9px; height:9px; border-radius:50%; border:none; cursor:pointer;
+  background:rgba(245,240,232,0.45); padding:0;
+  transition:all 0.25s; box-shadow:0 1px 4px rgba(0,0,0,0.4);
+}
+.dot.active { background:var(--gold); transform:scale(1.25); }
+
+.set-info { padding:30px 28px 34px; display:flex; flex-direction:column; flex:1; }
+.set-name { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:400; margin-bottom:12px; color:var(--mauve); }
+.set-desc { font-size:13.5px; line-height:1.85; color:#5a4a42; margin-bottom:14px; white-space:pre-line; flex:1; }
+.set-price {
+  font-size:13px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--gold); font-weight:500; margin-bottom:22px;
+  padding-top:14px; border-top:1px solid rgba(201,150,58,0.2);
+}
+.order-btn {
+  display:block; text-align:center; padding:14px; background:var(--gold); color:var(--mauve);
+  font-size:11px; letter-spacing:2.5px; text-transform:uppercase;
+  transition:opacity 0.2s, transform 0.2s;
+}
+.order-btn:hover { opacity:0.9; transform:translateY(-1px); }
+.more-note {
+  text-align:center; padding:0 40px 80px;
+  font-size:13px; color:rgba(245,240,232,0.7); line-height:1.8;
+}
+.more-note a { color:var(--gold-lt); text-decoration:underline; }
+footer {
+  background:#1a1014; color:rgba(245,240,232,0.4);
+  padding:28px 40px; text-align:center; font-size:11px; letter-spacing:2px;
+}
+@media (max-width:600px) {
+  nav { padding:12px 16px; }
+  header { padding:140px 20px 40px; }
+  .catalog { padding:20px 20px 70px; }
+  .slide { height:360px; }
+}
+</style>
+</head>
+<body>
+<div class="moon"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="https://lh3.googleusercontent.com/d/1G6le2wZ64tt7wA7_W_1G0cdKC4DOUDHK=w600" alt="Mistella logo" class="logo-circle"> MISTELLA</a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="hr" onclick="setLang('hr')">HR</button>
+    </div>
+    <a href="index.html" class="back-link" data-en="← Back to Home" data-hr="← Natrag na početnu">← Back to Home</a>
+  </div>
+</nav>
+
+<header>
+  <p class="eyebrow" data-en="Bespoke · Made Only For You" data-hr="Po mjeri · Izrađeno samo za tebe">Bespoke · Made Only For You</p>
+  <h1>Custom Design <em>Catalog</em></h1>
+  <div class="divider"></div>
+  <p class="header-sub" data-en="Past custom creations — each one designed around a client's story. Swipe through the photos. Your set will be one of a kind, just like these were." data-hr="Dosadašnje custom kreacije — svaka osmišljena oko priče klijentice. Prolistaj fotografije. Tvoj set bit će jedinstven, baš kao i ovi.">Past custom creations — each one designed around a client's story. Swipe through the photos. Your set will be one of a kind, just like these were.</p>
+</header>
+
+<div class="catalog">
+  <div class="set-card">
+    <div class="carousel" id="car0">
+      <div class="slides">
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/1qvtZ0aAtMvIZMHnJpGuT-za0PennUBVy=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/1qvtZ0aAtMvIZMHnJpGuT-za0PennUBVy=w1200" alt="Anniversary Set · Emerald — photo 1" loading="lazy">
+        </div>
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/1eDvqDg1N9D_1iRXChfhip1RGgYHD8bVq=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/1eDvqDg1N9D_1iRXChfhip1RGgYHD8bVq=w1200" alt="Anniversary Set · Emerald — photo 2" loading="lazy">
+        </div>
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/1uCIWJ5ytPKQgr2PYO-nXPBGehcqvcr7x=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/1uCIWJ5ytPKQgr2PYO-nXPBGehcqvcr7x=w1200" alt="Anniversary Set · Emerald — photo 3" loading="lazy">
+        </div>
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/10dBCTB6PRosGAYyJC9tMrRWL_8pnLqoR=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/10dBCTB6PRosGAYyJC9tMrRWL_8pnLqoR=w1200" alt="Anniversary Set · Emerald — photo 4" loading="lazy">
+        </div>
+      </div>
+      <div class="dots"><button class="dot active" data-i="0" aria-label="Photo 1"></button><button class="dot" data-i="1" aria-label="Photo 2"></button><button class="dot" data-i="2" aria-label="Photo 3"></button><button class="dot" data-i="3" aria-label="Photo 4"></button></div>
+    </div>
+    <div class="set-info">
+      <h2 class="set-name">Anniversary Set · Emerald</h2>
+      <p class="set-desc" data-en="For Margaret's wedding anniversary 💍✨&#10;Handmade in green and stained glass details of nature — timeless, elegant and made with love. 🌿💚" data-hr="Za Margaretinu godišnjicu braka 💍✨&#10;Ručno izrađeno u zelenim tonovima s vitraj detaljima prirode — bezvremensko, elegantno i napravljeno s ljubavlju. 🌿💚">For Margaret's wedding anniversary 💍✨
+Handmade in green and stained glass details of nature — timeless, elegant and made with love. 🌿💚</p>
+      <a class="order-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform" target="_blank" data-en="Request a Custom Set ✦" data-hr="Zatraži custom set ✦">Request a Custom Set ✦</a>
+    </div>
+  </div>
+  <div class="set-card">
+    <div class="carousel" id="car1">
+      <div class="slides">
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/1GB3uPqgOzcohJs9hhGCKmgeug-qKSIRr=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/1GB3uPqgOzcohJs9hhGCKmgeug-qKSIRr=w1200" alt="The Black Queen of Medvedgrad — photo 1" loading="lazy">
+        </div>
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/1X3f9vbYrus3ufOdBB0GJMv0DfaH8ywXI=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/1X3f9vbYrus3ufOdBB0GJMv0DfaH8ywXI=w1200" alt="The Black Queen of Medvedgrad — photo 2" loading="lazy">
+        </div>
+        <div class="slide">
+          <img class="blur-bg" src="https://lh3.googleusercontent.com/d/12XdRFRzFU15d3PB0QYqagEvge3Hul3qU=w1200" alt="" aria-hidden="true" loading="lazy">
+          <img class="fg" src="https://lh3.googleusercontent.com/d/12XdRFRzFU15d3PB0QYqagEvge3Hul3qU=w1200" alt="The Black Queen of Medvedgrad — photo 3" loading="lazy">
+        </div>
+      </div>
+      <div class="dots"><button class="dot active" data-i="0" aria-label="Photo 1"></button><button class="dot" data-i="1" aria-label="Photo 2"></button><button class="dot" data-i="2" aria-label="Photo 3"></button></div>
+    </div>
+    <div class="set-info">
+      <h2 class="set-name">The Black Queen of Medvedgrad</h2>
+      <p class="set-desc" data-en="Inspired by the legend of the Black Queen of Medvedgrad — deep velvet greens, antique gold and hand-painted portraits straight from Croatian folklore. A set for those who wear stories. 🏰🖤" data-hr="Inspirirano legendom o Crnoj kraljici Medvedgrada — duboke baršunaste zelene, starinsko zlato i ručno oslikani portreti iz hrvatske predaje. Set za one koje nose priče. 🏰🖤">Inspired by the legend of the Black Queen of Medvedgrad — deep velvet greens, antique gold and hand-painted portraits straight from Croatian folklore. A set for those who wear stories. 🏰🖤</p>
+      <a class="order-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform" target="_blank" data-en="Request a Custom Set ✦" data-hr="Zatraži custom set ✦">Request a Custom Set ✦</a>
+    </div>
+  </div>
+</div>
+
+<p class="more-note" data-en-html="Want something made just for you? Every custom set starts with a conversation — <a href=&quot;https://instagram.com/mistella_nails&quot; target=&quot;_blank&quot;>DM @mistella_nails</a> or use the order form. ✦ First order: 10% off." data-hr-html="Želiš nešto izrađeno samo za tebe? Svaki custom set počinje razgovorom — <a href=&quot;https://instagram.com/mistella_nails&quot; target=&quot;_blank&quot;>DM @mistella_nails</a> ili ispuni obrazac. ✦ Prva narudžba: 10% popusta.">Want something made just for you? Every custom set starts with a conversation — <a href="https://instagram.com/mistella_nails" target="_blank">DM @mistella_nails</a> or use the order form. ✦ First order: 10% off.</p>
+
+<footer>MISTELLA 🌙 · CROATIA · <a href="policies.html" style="color:rgba(245,240,232,0.55);text-decoration:underline;">Policies &amp; Terms</a></footer>
+
+<script>
+/* ── LANGUAGE TOGGLE ── */
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('[data-en-html]').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang + '-html');
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+}
+
+/* ── CAROUSELS: swipe + dots ── */
+document.querySelectorAll('.carousel').forEach(car => {
+  const slides = car.querySelector('.slides');
+  const dots = car.querySelectorAll('.dot');
+  // click a dot → scroll to that slide
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const i = parseInt(dot.getAttribute('data-i'));
+      slides.scrollTo({ left: i * slides.clientWidth, behavior: 'smooth' });
+    });
+  });
+  // on swipe/scroll → update active dot
+  let t;
+  slides.addEventListener('scroll', () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      const i = Math.round(slides.scrollLeft / slides.clientWidth);
+      dots.forEach((d, di) => d.classList.toggle('active', di === i));
+    }, 60);
+  });
+});
+</script>
+</body>
+</html>

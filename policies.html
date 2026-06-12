@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policies &amp; Terms | Mistella 🌙</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mauve:#2a1f24; --rose:#d4a5a5; --gold:#c9963a; --gold-lt:#e8d5a3;
+  --cream:#f5f0e8; --ink:#1a1410; --bg:#8d7468; --border:rgba(201,150,58,0.25);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'DM Sans',sans-serif; font-weight:300; background:var(--bg); color:var(--cream); overflow-x:hidden; }
+a { color:inherit; }
+img { max-width:100%; display:block; }
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 40px; background:rgba(42,31,36,0.94);
+  backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,150,58,0.15);
+  gap:12px; flex-wrap:wrap;
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif; font-size:20px; letter-spacing:4px;
+  color:var(--rose); display:flex; align-items:center; gap:10px; text-decoration:none;
+}
+.logo-circle {
+  border-radius:50%; object-fit:cover; height:38px; width:38px;
+  border:1px solid var(--gold); background:var(--bg);
+  box-shadow:0 0 0 3px rgba(201,150,58,0.15);
+}
+.nav-right { display:flex; align-items:center; gap:14px; }
+.lang-toggle { display:flex; border:1px solid rgba(245,240,232,0.25); border-radius:2px; overflow:hidden; }
+.lang-btn {
+  padding:6px 12px; font-size:11px; letter-spacing:1.5px; background:transparent;
+  border:none; cursor:pointer; color:rgba(245,240,232,0.5); font-family:'DM Sans',sans-serif;
+}
+.lang-btn.active { background:var(--gold); color:var(--mauve); font-weight:500; }
+.back-link {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  color:var(--gold); border:1px solid var(--gold); padding:8px 18px; transition:all 0.2s;
+}
+.back-link:hover { background:var(--gold); color:var(--mauve); }
+.moon {
+  position:fixed; top:-60px; right:-60px; width:340px; height:340px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, var(--gold), #8a6010);
+  opacity:0.12; z-index:-1; pointer-events:none;
+  animation:moonpulse 6s ease-in-out infinite;
+}
+@keyframes moonpulse {
+  0%,100% { transform:scale(1); opacity:0.12; }
+  50% { transform:scale(1.06); opacity:0.16; }
+}
+header { padding:150px 40px 40px; text-align:center; }
+h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,6vw,52px); font-weight:300; }
+h1 em { font-style:italic; color:var(--gold-lt); }
+.divider { width:48px; height:1px; background:var(--gold); margin:24px auto; }
+
+.toc {
+  display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+  padding:0 24px 50px;
+}
+.toc a {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  color:var(--gold-lt); border:1px solid rgba(201,150,58,0.35); padding:9px 18px;
+  transition:all 0.2s;
+}
+.toc a:hover { background:var(--gold); color:var(--mauve); }
+
+.policy-wrap { max-width:840px; margin:0 auto; padding:0 24px 80px; }
+.policy-section {
+  background:var(--cream); color:var(--ink);
+  border:1px solid var(--border);
+  padding:48px 44px; margin-bottom:28px;
+  scroll-margin-top:110px;
+}
+.policy-section h2 {
+  font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:400;
+  color:var(--mauve); margin-bottom:6px;
+}
+.policy-section .updated { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+.policy-section h3 {
+  font-size:14px; font-weight:500; color:var(--mauve);
+  margin:26px 0 10px; letter-spacing:0.5px;
+}
+.policy-section p, .policy-section li {
+  font-size:13.5px; line-height:1.9; color:#4a3e36; margin-bottom:10px;
+}
+.policy-section ul { padding-left:20px; margin-bottom:12px; }
+.policy-section a { color:var(--gold); }
+.placeholder { background:rgba(201,150,58,0.18); padding:1px 6px; border-radius:2px; font-weight:500; color:#7a5a10; }
+.note-box {
+  margin-top:24px; padding:16px 18px;
+  background:rgba(201,150,58,0.08); border-left:3px solid var(--gold);
+  font-size:12.5px; line-height:1.8; color:#5a4a42;
+}
+footer {
+  background:#1a1014; color:rgba(245,240,232,0.4);
+  padding:28px 40px; text-align:center; font-size:11px; letter-spacing:2px;
+}
+footer a { color:rgba(245,240,232,0.55); }
+.lang-hr { display:none; }
+body.hr .lang-hr { display:block; }
+body.hr .lang-en { display:none; }
+span.lang-hr { display:none; }
+body.hr span.lang-hr { display:inline; }
+body.hr span.lang-en { display:none; }
+@media (max-width:600px) {
+  nav { padding:12px 16px; }
+  header { padding:140px 20px 30px; }
+  .policy-section { padding:34px 24px; }
+}
+</style>
+</head>
+<body>
+<div class="moon"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="https://lh3.googleusercontent.com/d/1G6le2wZ64tt7wA7_W_1G0cdKC4DOUDHK=w600" alt="Mistella logo" class="logo-circle"> MISTELLA</a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="hr" onclick="setLang('hr')">HR</button>
+    </div>
+    <a href="index.html" class="back-link"><span class="lang-en">← Back to Home</span><span class="lang-hr">← Natrag na početnu</span></a>
+  </div>
+</nav>
+
+<header>
+  <h1><span class="lang-en">Policies &amp; <em>Terms</em></span><span class="lang-hr">Pravila i <em>uvjeti</em></span></h1>
+  <div class="divider"></div>
+</header>
+
+<div class="toc">
+  <a href="#returns"><span class="lang-en">Returns &amp; Refunds</span><span class="lang-hr">Povrati i reklamacije</span></a>
+  <a href="#terms"><span class="lang-en">Terms &amp; Conditions</span><span class="lang-hr">Uvjeti kupnje</span></a>
+  <a href="#privacy"><span class="lang-en">Privacy Policy</span><span class="lang-hr">Politika privatnosti</span></a>
+  <a href="#cookies"><span class="lang-en">Cookie Policy</span><span class="lang-hr">Kolačići</span></a>
+</div>
+
+<div class="policy-wrap">
+
+<!-- ════ RETURNS & REFUNDS ════ -->
+<section class="policy-section" id="returns">
+<div class="lang-en">
+  <h2>Returns &amp; Refund Policy</h2>
+  <p class="updated">Last updated: June 2026</p>
+
+  <h3>1. Hygiene products — important</h3>
+  <p>Press-on nails are personal care items. For hygiene and health-protection reasons, sets that have been opened, tried on, or worn <strong>cannot be returned or exchanged</strong>. This corresponds to the exemption for sealed goods not suitable for return for health and hygiene reasons under EU consumer law (Directive 2011/83/EU, Art. 16(e)).</p>
+
+  <h3>2. Custom (bespoke) sets</h3>
+  <p>Custom Design sets are made to your personal specifications — your measurements, chosen colors, and design. Under EU consumer law (Art. 16(c)), personalized goods are <strong>excluded from the 14-day right of withdrawal</strong> and are non-refundable once production has begun. I will always confirm the final design with you before I start painting.</p>
+
+  <h3>3. Preset sets — 14-day right of withdrawal</h3>
+  <p>For unopened, unworn Preset Design sets in their original sealed packaging, you may withdraw from the purchase within <strong>14 days</strong> of receiving your order, without giving a reason. To do so, contact me at <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a> within that period. Return shipping costs are borne by the buyer. The refund (including standard delivery costs) is issued within 14 days of receiving the returned item, using the same payment method you used.</p>
+  <p><em>Note:</em> Preset sets that are custom-sized to your measurements at the time of order may also qualify as personalized goods; I will tell you clearly before purchase if your order is non-returnable.</p>
+
+  <h3>4. Damaged, faulty, or wrong orders</h3>
+  <p>If your set arrives damaged, faulty, or isn't what you ordered, contact me within <strong>48 hours of delivery</strong> with photos of the product and packaging. I will offer a replacement, repair, or full refund — at no cost to you. Your statutory rights under the Croatian Consumer Protection Act regarding material defects remain unaffected.</p>
+
+  <h3>5. How to start a return or complaint</h3>
+  <ul>
+    <li>Email <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a> or DM <a href="https://instagram.com/mistella_nails">@mistella_nails</a></li>
+    <li>Include your name, order date, and photos if reporting damage</li>
+    <li>I respond to all written complaints within 15 days, as required by Croatian law</li>
+  </ul>
+</div>
+<div class="lang-hr">
+  <h2>Pravila povrata i reklamacija</h2>
+  <p class="updated">Zadnje ažurirano: lipanj 2026.</p>
+
+  <h3>1. Higijenski proizvodi — važno</h3>
+  <p>Press-on nokti su proizvodi za osobnu njegu. Iz higijenskih i zdravstvenih razloga, setovi koji su otvoreni, isprobani ili nošeni <strong>ne mogu se vratiti niti zamijeniti</strong>. To odgovara izuzeću za zapečaćenu robu koja nije pogodna za povrat zbog zaštite zdravlja i higijene prema EU pravu (Direktiva 2011/83/EU, čl. 16(e)).</p>
+
+  <h3>2. Custom (po mjeri) setovi</h3>
+  <p>Custom setovi izrađuju se prema tvojim osobnim specifikacijama — mjerama, odabranim bojama i dizajnu. Prema EU pravu (čl. 16(c)), personalizirana roba <strong>izuzeta je od prava na jednostrani raskid ugovora u roku od 14 dana</strong> i ne može se refundirati nakon početka izrade. Konačni dizajn uvijek potvrđujem s tobom prije početka oslikavanja.</p>
+
+  <h3>3. Preset setovi — pravo na raskid u roku 14 dana</h3>
+  <p>Za neotvorene, nenošene Preset setove u originalnom zapečaćenom pakiranju, možeš jednostrano raskinuti ugovor u roku od <strong>14 dana</strong> od primitka narudžbe, bez navođenja razloga. Javi se na <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a> unutar tog roka. Troškove povratne dostave snosi kupac. Povrat novca (uključujući standardne troškove dostave) izvršava se u roku od 14 dana od primitka vraćenog proizvoda, istim načinom plaćanja.</p>
+  <p><em>Napomena:</em> Preset setovi koji se izrađuju prema tvojim mjerama pri narudžbi također se mogu smatrati personaliziranom robom; prije kupnje jasno ću ti reći ako se tvoja narudžba ne može vratiti.</p>
+
+  <h3>4. Oštećene, neispravne ili pogrešne narudžbe</h3>
+  <p>Ako tvoj set stigne oštećen, neispravan ili nije ono što si naručila, javi mi se u roku od <strong>48 sati od dostave</strong> s fotografijama proizvoda i pakiranja. Ponudit ću zamjenu, popravak ili puni povrat novca — bez troška za tebe. Tvoja zakonska prava prema Zakonu o zaštiti potrošača u pogledu materijalnih nedostataka ostaju netaknuta.</p>
+
+  <h3>5. Kako pokrenuti povrat ili reklamaciju</h3>
+  <ul>
+    <li>Pošalji email na <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a> ili DM na <a href="https://instagram.com/mistella_nails">@mistella_nails</a></li>
+    <li>Navedi ime, datum narudžbe i fotografije ako prijavljuješ oštećenje</li>
+    <li>Na sve pisane reklamacije odgovaram u roku od 15 dana, sukladno hrvatskom zakonu</li>
+  </ul>
+</div>
+</section>
+
+<!-- ════ TERMS & CONDITIONS ════ -->
+<section class="policy-section" id="terms">
+<div class="lang-en">
+  <h2>Terms &amp; Conditions of Purchase</h2>
+  <p class="updated">Last updated: June 2026</p>
+
+  <h3>1. Seller information</h3>
+  <p>These terms govern purchases of Mistella handcrafted press-on nails.<br>
+  Seller: <span class="placeholder">[YOUR LEGAL BUSINESS NAME — e.g. obrt name]</span><br>
+  Registered address: <span class="placeholder">[BUSINESS ADDRESS]</span>, Croatia<br>
+  OIB: <span class="placeholder">[YOUR OIB]</span><br>
+  Email: <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a></p>
+  <p>By placing an order, the buyer confirms they have read and accepted these terms. The Croatian Consumer Protection Act and applicable EU consumer law apply.</p>
+
+  <h3>2. Ordering</h3>
+  <p>Orders can be placed via the order form on this website, by direct message on Instagram <a href="https://instagram.com/mistella_nails">@mistella_nails</a>, or via Facebook (<a href="https://www.facebook.com/Mistellanails">facebook.com/Mistellanails</a>). After you place an order, I will personally contact you to <strong>reconfirm all details</strong> — design, measurements, price, and delivery — before production begins. The order is confirmed, and the purchase contract concluded, once we have agreed these details in writing and payment (or payment terms) has been arranged.</p>
+
+  <h3>3. Prices and payment</h3>
+  <p>All prices are stated in euros (€). Accepted payment methods: <span class="placeholder">[e.g. bank transfer to IBAN, PayPal, Revolut — list yours]</span>. <span class="placeholder">[If not in the VAT system: "The seller is not subject to VAT pursuant to Art. 90, para. 2 of the Croatian VAT Act — VAT is not charged."]</span></p>
+
+  <h3>4. Production and delivery</h3>
+  <p>Custom sets take approximately 2–3 weeks to produce from confirmation of measurements and design. Preset sets ship sooner — typically within <span class="placeholder">[X business days]</span>. I ship across Europe via <span class="placeholder">[carrier, e.g. Hrvatska pošta / GLS]</span>. Estimated delivery: 2–4 business days within Croatia, 5–10 business days elsewhere in Europe. Shipping costs are communicated before payment. Risk passes to the buyer upon delivery.</p>
+
+  <h3>5. Product appearance</h3>
+  <p>Every set is painted by hand. Minor variations in color, pattern, and detail compared to photographs are a natural feature of handmade artwork and are not considered defects. Colors may also vary slightly depending on your screen.</p>
+
+  <h3>6. Complaints and disputes</h3>
+  <p>Written complaints can be sent to <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a>. I will confirm receipt and respond within 15 days. For online dispute resolution, EU consumers may also use the European Commission's ODR platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>. These terms are governed by Croatian law.</p>
+</div>
+<div class="lang-hr">
+  <h2>Uvjeti kupnje</h2>
+  <p class="updated">Zadnje ažurirano: lipanj 2026.</p>
+
+  <h3>1. Podaci o prodavatelju</h3>
+  <p>Ovi uvjeti uređuju kupnju Mistella ručno rađenih press-on noktiju.<br>
+  Prodavatelj: <span class="placeholder">[PUNI NAZIV OBRTA / TVRTKE]</span><br>
+  Sjedište: <span class="placeholder">[ADRESA SJEDIŠTA]</span>, Hrvatska<br>
+  OIB: <span class="placeholder">[TVOJ OIB]</span><br>
+  Email: <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a></p>
+  <p>Izvršenjem narudžbe kupac potvrđuje da je pročitao i prihvatio ove uvjete. Primjenjuju se Zakon o zaštiti potrošača i mjerodavno EU pravo.</p>
+
+  <h3>2. Naručivanje</h3>
+  <p>Narudžbe se mogu izvršiti putem obrasca na ovoj stranici, porukom na Instagramu <a href="https://instagram.com/mistella_nails">@mistella_nails</a> ili putem Facebooka (<a href="https://www.facebook.com/Mistellanails">facebook.com/Mistellanails</a>). Nakon što naručiš, osobno ću te kontaktirati radi <strong>potvrde svih detalja</strong> — dizajna, mjera, cijene i dostave — prije početka izrade. Narudžba je potvrđena, a ugovor o kupnji sklopljen, kada te detalje dogovorimo pisanim putem i kada je uplata (ili način plaćanja) dogovorena.</p>
+
+  <h3>3. Cijene i plaćanje</h3>
+  <p>Sve cijene iskazane su u eurima (€). Načini plaćanja: <span class="placeholder">[npr. uplata na IBAN, PayPal, Revolut — navedi svoje]</span>. <span class="placeholder">[Ako nisi u sustavu PDV-a: "Prodavatelj nije u sustavu PDV-a temeljem čl. 90. st. 2. Zakona o PDV-u — PDV se ne obračunava."]</span></p>
+
+  <h3>4. Izrada i dostava</h3>
+  <p>Custom setovi izrađuju se otprilike 2–3 tjedna od potvrde mjera i dizajna. Preset setovi šalju se ranije — obično u roku od <span class="placeholder">[X radnih dana]</span>. Šaljem diljem Europe putem <span class="placeholder">[dostavljač, npr. Hrvatska pošta / GLS]</span>. Procijenjena dostava: 2–4 radna dana unutar Hrvatske, 5–10 radnih dana u ostatku Europe. Troškovi dostave priopćuju se prije plaćanja. Rizik prelazi na kupca trenutkom isporuke.</p>
+
+  <h3>5. Izgled proizvoda</h3>
+  <p>Svaki set oslikan je rukom. Manje varijacije u boji, uzorku i detaljima u odnosu na fotografije prirodna su značajka ručno rađene umjetnosti i ne smatraju se nedostatkom. Boje se mogu blago razlikovati ovisno o tvom zaslonu.</p>
+
+  <h3>6. Reklamacije i sporovi</h3>
+  <p>Pisane prigovore možeš poslati na <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a>. Primitak ću potvrditi i odgovoriti u roku od 15 dana. Za online rješavanje sporova potrošači u EU mogu koristiti i ODR platformu Europske komisije: <a href="https://ec.europa.eu/consumers/odr" target="_blank">ec.europa.eu/consumers/odr</a>. Na ove uvjete primjenjuje se hrvatsko pravo.</p>
+</div>
+</section>
+
+<!-- ════ PRIVACY ════ -->
+<section class="policy-section" id="privacy">
+<div class="lang-en">
+  <h2>Privacy Policy</h2>
+  <p class="updated">Last updated: June 2026</p>
+
+  <h3>1. Who is responsible for your data</h3>
+  <p>Data controller: <span class="placeholder">[YOUR LEGAL BUSINESS NAME]</span>, <span class="placeholder">[ADDRESS]</span>, Croatia — contact: <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a>.</p>
+
+  <h3>2. What data I collect and why</h3>
+  <ul>
+    <li><strong>Order data:</strong> name, email, delivery address, phone, Instagram handle, nail measurements, design preferences — collected via the order form (Google Forms), email, or Instagram DM, and used solely to produce and deliver your order and communicate with you about it (legal basis: performance of a contract).</li>
+    <li><strong>Payment data:</strong> processed by your bank or payment provider; I only see confirmation of payment.</li>
+  </ul>
+  <p>I do not sell or share your data for marketing. Data is shared only with service providers needed to fulfil your order: Google (order form and file storage) and the shipping carrier (name and delivery address only).</p>
+
+  <h3>3. How long data is kept</h3>
+  <p>Order records are kept as long as required by Croatian accounting and tax regulations; other data is deleted when no longer needed.</p>
+
+  <h3>4. Your rights (GDPR)</h3>
+  <p>You have the right to access, correct, delete, or receive a copy of your data, and to object to or restrict its processing. To exercise these rights, email <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a>. You may also lodge a complaint with the Croatian Personal Data Protection Agency (AZOP, <a href="https://azop.hr" target="_blank">azop.hr</a>).</p>
+</div>
+<div class="lang-hr">
+  <h2>Politika privatnosti</h2>
+  <p class="updated">Zadnje ažurirano: lipanj 2026.</p>
+
+  <h3>1. Tko je odgovoran za tvoje podatke</h3>
+  <p>Voditelj obrade: <span class="placeholder">[PUNI NAZIV OBRTA / TVRTKE]</span>, <span class="placeholder">[ADRESA]</span>, Hrvatska — kontakt: <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a>.</p>
+
+  <h3>2. Koje podatke prikupljam i zašto</h3>
+  <ul>
+    <li><strong>Podaci o narudžbi:</strong> ime, email, adresa dostave, telefon, Instagram profil, mjere noktiju, želje za dizajn — prikupljaju se putem obrasca za narudžbu (Google Forms), emaila ili Instagram poruka i koriste isključivo za izradu i dostavu tvoje narudžbe te komunikaciju o njoj (pravna osnova: izvršenje ugovora).</li>
+    <li><strong>Podaci o plaćanju:</strong> obrađuje ih tvoja banka ili pružatelj usluge plaćanja; ja vidim samo potvrdu uplate.</li>
+  </ul>
+  <p>Tvoje podatke ne prodajem niti dijelim u marketinške svrhe. Podaci se dijele samo s pružateljima usluga potrebnima za izvršenje narudžbe: Google (obrazac i pohrana datoteka) i dostavna služba (samo ime i adresa dostave).</p>
+
+  <h3>3. Koliko dugo se podaci čuvaju</h3>
+  <p>Evidencija narudžbi čuva se onoliko dugo koliko zahtijevaju hrvatski računovodstveni i porezni propisi; ostali podaci brišu se kada više nisu potrebni.</p>
+
+  <h3>4. Tvoja prava (GDPR)</h3>
+  <p>Imaš pravo na pristup, ispravak, brisanje ili kopiju svojih podataka te na prigovor ili ograničenje obrade. Za ostvarivanje tih prava piši na <a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a>. Pritužbu možeš podnijeti i Agenciji za zaštitu osobnih podataka (AZOP, <a href="https://azop.hr" target="_blank">azop.hr</a>).</p>
+</div>
+</section>
+
+<!-- ════ COOKIES ════ -->
+<section class="policy-section" id="cookies">
+<div class="lang-en">
+  <h2>Cookie Policy</h2>
+  <p class="updated">Last updated: June 2026</p>
+  <p>This website itself does not set any cookies and does not use analytics or advertising trackers.</p>
+  <p>However, the site embeds third-party content that may set its own cookies or process your IP address when loaded:</p>
+  <ul>
+    <li><strong>Google Forms</strong> — the embedded order form</li>
+    <li><strong>Google-hosted images and fonts</strong> — product photos and typography</li>
+  </ul>
+  <p>These are governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. You can block or delete cookies at any time in your browser settings (usually under Privacy/Cookies); the site will continue to work, though the embedded order form may not display.</p>
+</div>
+<div class="lang-hr">
+  <h2>Politika kolačića</h2>
+  <p class="updated">Zadnje ažurirano: lipanj 2026.</p>
+  <p>Ova stranica sama po sebi ne postavlja kolačiće i ne koristi analitičke ni oglašivačke trackere.</p>
+  <p>Međutim, stranica sadrži ugrađeni sadržaj trećih strana koji pri učitavanju može postaviti vlastite kolačiće ili obraditi tvoju IP adresu:</p>
+  <ul>
+    <li><strong>Google Forms</strong> — ugrađeni obrazac za narudžbu</li>
+    <li><strong>Slike i fontovi na Google poslužiteljima</strong> — fotografije proizvoda i tipografija</li>
+  </ul>
+  <p>Na njih se primjenjuje <a href="https://policies.google.com/privacy" target="_blank">Googleova politika privatnosti</a>. Kolačiće možeš blokirati ili izbrisati u postavkama preglednika (obično pod Privatnost/Kolačići); stranica će i dalje raditi, no ugrađeni obrazac možda se neće prikazati.</p>
+</div>
+
+<div class="note-box">
+  <span class="lang-en"><strong>Note for Mistella:</strong> highlighted placeholders must be filled in with your real business details before publishing. This text is a starting template adapted to your business — it is not legal advice; consider having it reviewed.</span>
+  <span class="lang-hr"><strong>Napomena za Mistellu:</strong> označene rezervirane dijelove treba popuniti stvarnim poslovnim podacima prije objave. Ovaj tekst je početni predložak prilagođen tvom poslovanju — nije pravni savjet; razmotri pravnu provjeru.</span>
+</div>
+</section>
+
+</div>
+
+<footer>
+  MISTELLA 🌙 · CROATIA · <a href="index.html"><span class="lang-en">Home</span><span class="lang-hr">Početna</span></a>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.body.classList.toggle('hr', lang === 'hr');
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+}
+</script>
+</body>
+</html>

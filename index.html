@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mistella 🌙 | Handcrafted Press-On Nails</title>
+<!--
+  BRAND FONT (MOD20.TTF):
+  Browsers block fonts loaded from Google Drive (CORS). To use your brand font:
+  1. Put MOD20.TTF in a /fonts folder next to this HTML file on your hosting
+  2. Uncomment the @font-face block in the CSS below
+  3. The logo/headings will switch automatically via the font-family fallback chain
+-->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* @font-face {
+  font-family: 'MistellaBrand';
+  src: url('fonts/MOD20.TTF') format('truetype');
+  font-display: swap;
+} */
+:root {
+  --mauve:   #2a1f24;
+  --rose:    #d4a5a5;
+  --gold:    #c9963a;
+  --gold-lt: #e8d5a3;
+  --cream:   #f5f0e8;
+  --ink:     #1a1410;
+  --muted:   #8a7a72;
+  --white:   #fdfaf6;
+  --border:  rgba(201,150,58,0.2);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(42,31,36,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,150,58,0.15);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; letter-spacing: 4px;
+  color: var(--rose);
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo span { color: var(--gold); font-size: 16px; }
+.nav-right { display: flex; align-items: center; gap: 28px; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(245,240,232,0.7);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 9px 20px; border: 1px solid var(--gold);
+  color: var(--gold); background: transparent;
+  cursor: pointer; transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--mauve); }
+
+/* LANGUAGE TOGGLE */
+.lang-toggle {
+  display: flex; border: 1px solid rgba(245,240,232,0.25);
+  overflow: hidden; border-radius: 2px;
+}
+.lang-btn {
+  padding: 7px 14px; font-size: 11px; letter-spacing: 1.5px;
+  background: transparent; border: none; cursor: pointer;
+  color: rgba(245,240,232,0.5); font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s; font-weight: 400;
+}
+.lang-btn.active {
+  background: var(--gold); color: var(--mauve); font-weight: 500;
+}
+.lang-btn:not(.active):hover { color: var(--cream); }
+
+/* HERO */
+#hero {
+  min-height: 100vh;
+  background: transparent;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 100px 24px 80px;
+  text-align: center;
+}
+#hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--mauve); z-index: -2;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 30%, rgba(201,150,58,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(212,165,165,0.06) 0%, transparent 50%);
+}
+.hero-moon {
+  position: fixed; top: -60px; right: -60px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--gold), #8a6010);
+  opacity: 0.12;
+  animation: moonpulse 6s ease-in-out infinite;
+  z-index: -1; pointer-events: none;
+}
+@keyframes moonpulse {
+  0%,100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.06); opacity: 0.16; }
+}
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 24px;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 10vw, 100px); font-weight: 300;
+  color: var(--cream); line-height: 0.95; letter-spacing: 8px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title em { color: var(--rose); font-style: italic; letter-spacing: 2px; }
+.hero-moon-icon {
+  display: inline-block; color: var(--gold); font-size: 0.55em;
+  vertical-align: super; margin-left: 4px;
+}
+.hero-sub {
+  font-size: 15px; color: rgba(245,240,232,0.6); margin: 28px auto 0;
+  max-width: 420px; line-height: 1.8; letter-spacing: 0.5px;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+.hero-btns {
+  display: flex; gap: 16px; justify-content: center; margin-top: 44px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.btn-primary {
+  padding: 14px 36px; background: var(--gold);
+  color: var(--mauve); font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; cursor: pointer; border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,150,58,0.35); }
+.btn-outline {
+  padding: 14px 36px; border: 1px solid rgba(245,240,232,0.3);
+  color: var(--cream); font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; cursor: pointer; background: transparent;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { border-color: var(--rose); color: var(--rose); }
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(245,240,232,0.35); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, rgba(201,150,58,0.6), transparent);
+  animation: scrolldrop 2s ease-in-out infinite;
+}
+@keyframes scrolldrop {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+}
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--mauve);
+  border-top: 1px solid rgba(201,150,58,0.15);
+  padding: 20px 48px;
+  display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(245,240,232,0.55);
+}
+.trust-icon { color: var(--gold); font-size: 16px; }
+
+/* SECTION COMMON */
+.section { padding: 100px 48px; }
+.section-label {
+  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px; display: block;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px); font-weight: 300;
+  line-height: 1.1;
+}
+.section-title em { font-style: italic; color: var(--rose); }
+.divider { width: 48px; height: 1px; background: var(--gold); margin: 24px 0; }
+.section-body { font-size: 15px; line-height: 1.85; color: var(--muted); max-width: 560px; }
+
+/* ABOUT */
+#about {
+  background: var(--white);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: center;
+}
+.about-img-wrap { position: relative; height: 560px; }
+.about-img-accent {
+  position: absolute; bottom: -24px; right: 0;
+  width: 46%; border-radius: 60px 0 0 0;
+  border: 6px solid var(--white);
+  box-shadow: 0 12px 40px rgba(26,20,16,0.12);
+}
+.about-quote {
+  margin-top: 36px; padding: 20px 24px;
+  border-left: 3px solid var(--gold);
+  background: rgba(201,150,58,0.05);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-style: italic; line-height: 1.7;
+  color: var(--mauve);
+}
+
+/* SERVICES */
+#services { background: var(--cream); }
+.services-header { text-align: center; margin-bottom: 64px; }
+.services-header .divider { margin: 24px auto; }
+.services-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  max-width: 1100px; margin: 0 auto;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 52px 44px;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(26,20,16,0.1); }
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--gold));
+}
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px; color: rgba(201,150,58,0.07);
+  position: absolute; top: 12px; right: 24px;
+  line-height: 1; pointer-events: none;
+}
+.service-tag {
+  display: inline-block; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; padding: 5px 12px;
+  border: 1px solid var(--border); color: var(--gold);
+  margin-bottom: 24px;
+}
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 300; line-height: 1.15;
+  margin-bottom: 8px;
+}
+.service-card h3 em { font-style: italic; color: var(--rose); }
+.service-tagline {
+  font-size: 13px; color: var(--gold); letter-spacing: 1px;
+  margin-bottom: 20px; font-style: italic;
+}
+.service-desc { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 28px; }
+.service-features { list-style: none; }
+.service-features li {
+  font-size: 13px; padding: 9px 0;
+  border-bottom: 1px solid rgba(201,150,58,0.1);
+  display: flex; align-items: flex-start; gap: 10px; color: #5a4a42;
+}
+.service-features li:last-child { border-bottom: none; }
+.feat-icon { color: var(--gold); font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+.service-cta {
+  display: inline-block; margin-top: 32px;
+  padding: 12px 28px; border: 1px solid var(--gold);
+  color: var(--gold); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; transition: all 0.2s; cursor: pointer;
+}
+.service-cta:hover { background: var(--gold); color: var(--white); }
+
+/* HOW TO ORDER */
+#order { background: var(--mauve); }
+#order .section-title { color: var(--cream); }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+  margin-top: 56px;
+}
+.step {
+  background: rgba(245,240,232,0.04);
+  padding: 40px 28px;
+  border: 1px solid rgba(201,150,58,0.1);
+  position: relative; overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+/* animated photo layer */
+.step-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0.18; z-index: 0;
+  animation: kenburns 16s ease-in-out infinite alternate;
+  transition: opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+.step:nth-child(1) .step-bg { animation-delay: 0s; }
+.step:nth-child(2) .step-bg { animation-delay: -4s; }
+.step:nth-child(3) .step-bg { animation-delay: -8s; }
+.step:nth-child(4) .step-bg { animation-delay: -12s; }
+@keyframes kenburns {
+  0%   { transform: scale(1.55) translate(0, 0); }
+  100% { transform: scale(1.75) translate(1.5%, -1.5%); }
+}
+/* dark veil keeps text readable over the photo */
+.step::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(42,31,36,0.93) 18%, rgba(42,31,36,0.62) 65%, rgba(42,31,36,0.45) 100%);
+  transition: background 0.6s ease;
+  pointer-events: none;
+}
+/* gold shimmer that sweeps across on hover */
+.step::before {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -80%;
+  width: 50%; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, transparent 0%, rgba(232,213,163,0.14) 50%, transparent 100%);
+  transform: skewX(-12deg);
+  transition: left 0.9s ease;
+}
+.step:hover::before { left: 130%; }
+.step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201,150,58,0.45);
+}
+.step:hover .step-bg { opacity: 0.42; }
+.step:hover::after {
+  background: linear-gradient(to top, rgba(42,31,36,0.9) 18%, rgba(42,31,36,0.5) 65%, rgba(42,31,36,0.3) 100%);
+}
+/* lift content above the image + veil */
+.step > .step-num, .step > h4, .step > p {
+  position: relative; z-index: 3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-bg { animation: none; }
+}
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300;
+  color: rgba(201,150,58,0.3); line-height: 1;
+  margin-bottom: 20px;
+}
+.step h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 400;
+  color: var(--cream); margin-bottom: 12px;
+}
+.step p { font-size: 13px; line-height: 1.75; color: rgba(245,240,232,0.55); }
+
+/* HOW TO APPLY */
+#apply { background: var(--white); }
+.apply-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.apply-step {
+  display: flex; gap: 24px;
+  padding: 24px 0; border-bottom: 1px solid rgba(201,150,58,0.12);
+}
+.apply-step:last-child { border-bottom: none; }
+.apply-step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 300;
+  color: var(--rose); line-height: 1; flex-shrink: 0;
+  width: 44px;
+}
+.apply-step-content h4 { font-size: 15px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
+.apply-step-content p { font-size: 13px; line-height: 1.75; color: var(--muted); }
+.apply-tips { background: var(--cream); border: 1px solid var(--border); padding: 40px; }
+.apply-tips h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 300; margin-bottom: 20px;
+}
+.apply-tips h3 em { font-style: italic; color: var(--rose); }
+.tip-item {
+  display: flex; gap: 14px; padding: 14px 0;
+  border-bottom: 1px solid rgba(201,150,58,0.1);
+  font-size: 13px; line-height: 1.7; color: var(--muted);
+  align-items: flex-start;
+}
+.tip-item:last-child { border-bottom: none; }
+.tip-dot { color: var(--gold); flex-shrink: 0; margin-top: 4px; }
+.info-box {
+  margin-top: 28px; padding: 20px;
+  background: rgba(201,150,58,0.06); border: 1px solid var(--border);
+}
+.info-box p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+/* SIZING */
+#sizing { background: var(--cream); }
+.sizing-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  margin-top: 48px;
+}
+.sizing-visual { background: var(--white); border: 1px solid var(--border); padding: 40px; text-align: center; }
+.sizing-visual h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 22px; margin-bottom: 8px; }
+.sizing-visual .chart-sub { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
+.size-chart { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.size-chart th {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); padding: 10px 16px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.size-chart td {
+  padding: 10px 16px; font-size: 13px; color: var(--muted);
+  border-bottom: 1px solid rgba(201,150,58,0.08);
+}
+.size-chart tr:last-child td { border-bottom: none; }
+.sizing-instruction h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 300; margin-bottom: 16px;
+}
+.sizing-instruction h3 em { font-style: italic; color: var(--rose); }
+.sizing-instruction > p { font-size: 14px; line-height: 1.85; color: var(--muted); margin-bottom: 16px; }
+.sizing-steps { list-style: none; counter-reset: slist; }
+.sizing-steps li {
+  counter-increment: slist;
+  display: flex; gap: 16px; padding: 12px 0;
+  border-bottom: 1px solid rgba(201,150,58,0.1);
+  font-size: 13px; line-height: 1.7; color: var(--muted);
+}
+.sizing-steps li::before {
+  content: counter(slist);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--gold); flex-shrink: 0; line-height: 1.2;
+}
+
+/* FAQ */
+#faq { background: var(--white); }
+.faq-header { text-align: center; }
+.faq-header .divider { margin: 24px auto; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
+.faq-item { border: 1px solid var(--border); background: var(--white); overflow: hidden; }
+.faq-q {
+  padding: 22px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; gap: 16px;
+  font-size: 14px; font-weight: 500; color: var(--ink);
+  transition: background 0.2s;
+  user-select: none;
+}
+.faq-q:hover { background: rgba(201,150,58,0.04); }
+.faq-icon { color: var(--gold); font-size: 18px; flex-shrink: 0; transition: transform 0.2s; }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.3s ease;
+  font-size: 13px; line-height: 1.8; color: var(--muted);
+  padding: 0 24px;
+}
+.faq-item.open .faq-a { max-height: 240px; padding: 0 24px 20px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+/* CONTACT */
+#contact { background: var(--mauve); }
+#contact .section-title { color: var(--cream); }
+#contact .section-body { color: rgba(245,240,232,0.55); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; margin-top: 56px; }
+.contact-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 300; color: var(--cream); margin-bottom: 28px;
+}
+.contact-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 0; border-bottom: 1px solid rgba(201,150,58,0.12);
+  color: rgba(245,240,232,0.6); font-size: 13px; line-height: 1.6;
+}
+.contact-item:last-child { border-bottom: none; }
+.c-icon { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+.contact-item a { color: var(--rose); }
+.contact-item a:hover { color: var(--gold); }
+.contact-promo {
+  margin-top: 32px; padding: 20px;
+  border: 1px solid rgba(201,150,58,0.2);
+  background: rgba(201,150,58,0.05);
+}
+.contact-promo p { font-size: 12px; color: rgba(245,240,232,0.5); line-height: 1.8; }
+.contact-promo strong { color: var(--gold); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(245,240,232,0.4); margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 13px 16px;
+  background: rgba(245,240,232,0.05);
+  border: 1px solid rgba(201,150,58,0.2);
+  color: var(--cream); font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 300;
+  outline: none; transition: border-color 0.2s;
+  appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option { background: var(--mauve); }
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-submit {
+  width: 100%; padding: 16px; background: var(--gold);
+  border: none; color: var(--mauve); font-family: 'DM Sans', sans-serif;
+  font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  cursor: pointer; transition: opacity 0.2s, transform 0.2s;
+  margin-top: 8px;
+}
+.form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+.form-note { font-size: 11px; color: rgba(245,240,232,0.3); margin-top: 12px; line-height: 1.6; }
+
+/* FOOTER */
+footer { background: #1a1014; color: rgba(245,240,232,0.4); padding: 56px 48px 32px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-brand .f-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; color: var(--rose); letter-spacing: 6px; margin-bottom: 16px;
+}
+.footer-brand p { font-size: 13px; line-height: 1.8; max-width: 300px; }
+.footer-col h4 {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 13px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--rose); }
+.footer-bottom {
+  border-top: 1px solid rgba(245,240,232,0.06);
+  padding-top: 24px; display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; letter-spacing: 1px; flex-wrap: wrap; gap: 12px;
+}
+
+/* GALLERY STRIP */
+#gallery { background: var(--ink); padding: 0; overflow: hidden; }
+.gallery-track { display: flex; gap: 3px; }
+.gallery-item {
+  flex-shrink: 0; width: calc(100% / 5);
+  aspect-ratio: 3/4; background: var(--mauve);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; color: rgba(245,240,232,0.2);
+  letter-spacing: 2px; font-style: italic;
+  overflow: hidden; position: relative;
+}
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(42,31,36,0.8) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: flex-end;
+  padding: 20px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  .section { padding: 72px 24px; }
+  #about, .services-grid, .apply-grid, .sizing-grid,
+  .contact-layout, .footer-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .about-img-wrap { height: 360px; }
+  .form-row { grid-template-columns: 1fr; }
+  .gallery-item { width: calc(100% / 3); }
+}
+@media (max-width: 560px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .gallery-item { width: calc(100% / 2); }
+  .trust-bar { gap: 24px; padding: 20px 24px; }
+  .nav-cta { display: none; }
+}
+
+/* ── FRESCO MAUVE THEME (matches Mistella logo background) ── */
+:root { --bg: #8d7468; }
+body { background: var(--bg); }
+#about, #apply { background: transparent; }
+#services, #sizing, #faq { background: rgba(26,20,16,0.1); }
+.section-title { color: var(--cream); }
+.section-body { color: rgba(245,240,232,0.8); }
+.about-quote { color: var(--cream); background: rgba(245,240,232,0.07); }
+.apply-step-content h4 { color: var(--cream); }
+.apply-step-content p { color: rgba(245,240,232,0.72); }
+.sizing-instruction h3 { color: var(--cream); }
+.sizing-instruction > p, .sizing-steps li { color: rgba(245,240,232,0.78); }
+.sizing-instruction .info-box { background: rgba(245,240,232,0.08); }
+.sizing-instruction .info-box p { color: rgba(245,240,232,0.8); }
+.sizing-instruction .info-box strong { color: var(--gold-lt) !important; }
+.apply-step { border-bottom-color: rgba(245,240,232,0.15); }
+.about-img-accent { border-color: var(--bg); }
+
+/* Circle frame for the Mistella logo */
+.logo-circle {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+  background: var(--bg);
+  box-shadow: 0 0 0 3px rgba(201,150,58,0.15);
+}
+
+/* ── BLUR-IMAGE BACKDROP FRAMES ── */
+.img-blur-frame {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.img-blur-frame .blur-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: blur(20px) brightness(0.8) saturate(1.1);
+  transform: scale(1.2);
+}
+.img-blur-frame .fg {
+  position: relative; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="https://lh3.googleusercontent.com/d/1G6le2wZ64tt7wA7_W_1G0cdKC4DOUDHK=w600" alt="Mistella logo" class="logo-circle" style="height:40px;width:40px;" onerror="this.style.display='none'"> MISTELLA</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav_about">About</a></li>
+      <li><a href="#services" data-i18n="nav_services">Services</a></li>
+      <li><a href="#apply" data-i18n="nav_apply">How to Apply</a></li>
+      <li><a href="#sizing" data-i18n="nav_sizing">Sizing</a></li>
+      <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="hr" onclick="setLang('hr')">HR</button>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform" target="_blank" class="nav-cta" data-i18n="nav_cta">Order Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-moon"></div>
+  <img src="https://lh3.googleusercontent.com/d/1G6le2wZ64tt7wA7_W_1G0cdKC4DOUDHK=w600" alt="Mistella moon logo" class="logo-circle" style="height:96px;width:96px;margin-bottom:24px;position:relative;animation:fadeUp 0.8s ease both;" onerror="this.style.display='none'">
+  <p class="hero-eyebrow" data-i18n="hero_eyebrow">Handcrafted Press-On Nails · Croatia</p>
+  <h1 class="hero-title">MI<em>STELLA</em><span class="hero-moon-icon">🌙</span></h1>
+  <p class="hero-sub" data-i18n="hero_sub">Personalized nail art, handcrafted to fit your style and moments. Reusable, gentle on natural nails.</p>
+  <div class="hero-btns">
+    <a href="#services" class="btn-primary" data-i18n="hero_btn1">Explore Collections</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform" target="_blank" class="btn-outline" data-i18n="hero_btn2">Get a Custom Quote</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span data-i18n="hero_scroll">scroll</span>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✦</span> <span data-i18n="trust1">100% Handcrafted</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> <span data-i18n="trust2">Reusable Sets</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> <span data-i18n="trust3">Nail-safe Materials</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> <span data-i18n="trust4">Custom Sizing</span></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> <span data-i18n="trust5">Ships Across Europe</span></div>
+</div>
+
+<!-- GALLERY STRIP -->
+<section id="gallery">
+  <div class="gallery-track">
+    <div class="gallery-item" style="background:linear-gradient(135deg,#2a4a3a,#1a2e28)">
+      <div class="gallery-overlay"><span class="gallery-label" data-i18n="gal1">Anniversary Set · Emerald</span></div>
+      <img src="https://lh3.googleusercontent.com/d/1qvtZ0aAtMvIZMHnJpGuT-za0PennUBVy=w1200" alt="Custom Anniversary Set — Emerald stained glass press-on nails" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,#3a2a2e,#1a1014)">
+      <div class="gallery-overlay"><span class="gallery-label" data-i18n="gal2">The Black Queen of Medvedgrad</span></div>
+      <img src="https://lh3.googleusercontent.com/d/1GB3uPqgOzcohJs9hhGCKmgeug-qKSIRr=w1200" alt="The Black Queen of Medvedgrad — gothic hand-painted press-on nails" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,#7a6560,#c8a898)">
+      <div class="gallery-overlay"><span class="gallery-label" data-i18n="gal3">Croatian Wedding Set</span></div>
+      <img src="https://lh3.googleusercontent.com/d/10Hn4v4DIkhN4pw35fCd6QFetpjb0JxIF=w1200" alt="Vintage Lace — Croatian Wedding Set press-on nails" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,#8a3030,#c87050)">
+      <div class="gallery-overlay"><span class="gallery-label" data-i18n="gal4">Rose Lace</span></div>
+      <img src="https://lh3.googleusercontent.com/d/189bZnpSpXaZlT4Wl7bKz9KmRlwo-W7Nh=w1200" alt="Rose Lace — floral lace press-on nails" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+    </div>
+    <div class="gallery-item" style="background:linear-gradient(135deg,#e8dfd0,#c8b898)">
+      <div class="gallery-overlay"><span class="gallery-label" data-i18n="gal5">Satin Dreams</span></div>
+      <img src="https://lh3.googleusercontent.com/d/1AUoCufOXTutZumyBZJ3dHLuUwvgG2JZQ=w1200" alt="Satin Dreams — quiet luxury nude press-on nails" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="about-img-wrap reveal">
+    <img src="https://lh3.googleusercontent.com/d/16BRcEGU5bGVN5rLRIZcMLBTfNoyio0eb=w1200" alt="Mistella — the artist behind the nails" style="width:72%;height:100%;object-fit:cover;border-radius:0 0 120px 0;">
+    <img src="https://lh3.googleusercontent.com/d/1H3vAMSfnXVvDMqdJXECCn-nbwZ05uFX4=w800" alt="Mistella handcrafted nail detail" class="about-img-accent" style="height:200px;object-fit:cover;">
+  </div>
+  <div class="reveal" style="transition-delay:0.15s">
+    <span class="section-label" data-i18n="about_label">The Artist</span>
+    <h2 class="section-title" data-i18n-html="about_title">Behind Every Nail,<br>a <em>Story</em></h2>
+    <div class="divider"></div>
+    <p class="section-body" data-i18n-html="about_body">
+      I'm Mistella — a handcrafted press-on nail artist based in Croatia. Every set I create is painted by hand, inspired by art, history, and the stories my clients carry with them.
+      <br><br>
+      My nails are more than accessories — they're wearable art. Whether you want something dark and mythological, lace and romantic, or quietly luxurious, I craft each set with the same care and precision.
+    </p>
+    <div class="about-quote" data-i18n="about_quote">
+      "Your story, your nails. ✨ I handcraft sets made only for you — tailored in size, color, and detail to match your style or special occasion."
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="services-header reveal">
+    <span class="section-label" data-i18n="svc_label">What I Offer</span>
+    <h2 class="section-title" data-i18n-html="svc_title">Choose Your <em>Experience</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <span class="service-num">01</span>
+      <div class="img-blur-frame" style="height:280px;margin-bottom:28px;">
+        <img class="blur-bg" src="https://lh3.googleusercontent.com/d/1eDvqDg1N9D_1iRXChfhip1RGgYHD8bVq=w1200" alt="" aria-hidden="true" loading="lazy">
+        <img class="fg" src="https://lh3.googleusercontent.com/d/1eDvqDg1N9D_1iRXChfhip1RGgYHD8bVq=w1200" alt="Custom design example — Anniversary Set Emerald" loading="lazy">
+      </div>
+      <span class="service-tag" data-i18n="svc1_tag">Bespoke</span>
+      <h3 data-i18n-html="svc1_title"><em>Custom</em> Design</h3>
+      <p class="service-tagline" data-i18n="svc1_tagline">Your story, your nails.</p>
+      <p class="service-desc" data-i18n="svc1_desc">A set made only for you — tailored in size, color, and every detail to match your style or special occasion. Perfect when you want something personal and truly one-of-a-kind.</p>
+      <ul class="service-features">
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc1_f1">Fully personalized design consultation</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc1_f2">Custom sized to your exact nail measurements</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc1_f3">Hand-painted artwork, no two sets alike</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc1_f4">Perfect for weddings, events &amp; special moments</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc1_f5">2–3 week turnaround</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc1_f6">10% off your first order</span></li>
+      </ul>
+      <a href="custom-catalog.html" class="service-cta" data-i18n="svc1_cta">Browse &amp; Order</a>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.15s">
+      <span class="service-num">02</span>
+      <div class="img-blur-frame" style="height:280px;margin-bottom:28px;">
+        <img class="blur-bg" src="https://lh3.googleusercontent.com/d/17mGXP2LcxLWUeukqD_JlDLpK0goJ-RaL=w1200" alt="" aria-hidden="true" loading="lazy">
+        <img class="fg" src="https://lh3.googleusercontent.com/d/17mGXP2LcxLWUeukqD_JlDLpK0goJ-RaL=w1200" alt="Preset design example — Mistella collection" loading="lazy">
+      </div>
+      <span class="service-tag" data-i18n="svc2_tag">Ready to Order</span>
+      <h3 data-i18n-html="svc2_title"><em>Preset</em> Design</h3>
+      <p class="service-tagline" data-i18n="svc2_tagline">Handcrafted elegance, always within reach.</p>
+      <p class="service-desc" data-i18n="svc2_desc">Pre-made collections inspired by art, nature, and timeless beauty. Each set is handmade and ready to order — ideal if you want the Mistella look without the wait of a custom design.</p>
+      <ul class="service-features">
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc2_f1">Handmade &amp; ready to ship</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc2_f2">Sized to your measurements upon order</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc2_f3">Inspired by art, nature &amp; timeless beauty</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc2_f4">Faster turnaround than custom orders</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc2_f5">New collections added regularly</span></li>
+        <li><span class="feat-icon">✦</span> <span data-i18n="svc2_f6">10% off your first order</span></li>
+      </ul>
+      <a href="preset-catalog.html" class="service-cta" data-i18n="svc2_cta">Browse &amp; Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section id="order" class="section">
+  <div class="reveal">
+    <span class="section-label" data-i18n="order_label">The Process</span>
+    <h2 class="section-title" style="color:var(--cream)" data-i18n-html="order_title">How to <em style="color:var(--rose)">Order</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="steps-grid">
+    <div class="step reveal">
+      <img class="step-bg" src="https://lh3.googleusercontent.com/d/15C9fvUNcU59mZQ1X_9FSi-S8xOIPYqJ_=w1000" alt="" aria-hidden="true" loading="lazy">
+      <div class="step-num">01</div>
+      <h4 data-i18n="step1_h">Get in Touch</h4>
+      <p data-i18n="step1_p">Order via Instagram @mistella_nails, Facebook, or the order form on this website. Tell me your vision, occasion, and preferred style — I'll contact you to reconfirm everything before production begins.</p>
+    </div>
+    <div class="step reveal" style="transition-delay:0.1s">
+      <img class="step-bg" src="https://lh3.googleusercontent.com/d/1fUhJCTZg5E2bHPJzPkJuV_w0JNCKRHC-=w1000" alt="" aria-hidden="true" loading="lazy">
+      <div class="step-num">02</div>
+      <h4 data-i18n="step2_h">Send Your Sizes</h4>
+      <p data-i18n="step2_p">I'll send you a sizing guide. Measure each nail with a tape measure or paper strip for a perfect fit.</p>
+    </div>
+    <div class="step reveal" style="transition-delay:0.2s">
+      <img class="step-bg" src="https://lh3.googleusercontent.com/d/1xJFrBCX_m4ImBjwrIDeYMVRytzcsth2D=w1000" alt="" aria-hidden="true" loading="lazy">
+      <div class="step-num">03</div>
+      <h4 data-i18n="step3_h">Design &amp; Craft</h4>
+      <p data-i18n="step3_p">I handcraft your set, paint every detail by hand, and keep you updated. Custom sets take 2–3 weeks; preset sets ship sooner.</p>
+    </div>
+    <div class="step reveal" style="transition-delay:0.3s">
+      <img class="step-bg" src="https://lh3.googleusercontent.com/d/1Z3Wn3WKgbbPpkcd4UBgmQS2ce3wxoJ7h=w1000" alt="" aria-hidden="true" loading="lazy">
+      <div class="step-num">04</div>
+      <h4 data-i18n="step4_h">Receive &amp; Wear</h4>
+      <p data-i18n="step4_p">Your nails arrive packaged in a keepsake box, sized and labeled. Apply and wear — or save them for the perfect moment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO APPLY -->
+<section id="apply" class="section">
+  <div class="apply-grid">
+    <div>
+      <span class="section-label reveal" data-i18n="apply_label">Application Guide</span>
+      <h2 class="section-title reveal" data-i18n-html="apply_title">How to <em>Apply</em></h2>
+      <div class="divider reveal"></div>
+      <div class="apply-steps">
+        <div class="apply-step reveal">
+          <span class="apply-step-num">1</span>
+          <div class="apply-step-content">
+            <h4 data-i18n="ap1_h">Prep Your Nails</h4>
+            <p data-i18n="ap1_p">Remove any old polish. Push back cuticles gently, then buff the surface of your natural nails lightly. Wipe with a lint-free pad and rubbing alcohol to remove all oils — this is the most important step for long wear.</p>
+          </div>
+        </div>
+        <div class="apply-step reveal">
+          <span class="apply-step-num">2</span>
+          <div class="apply-step-content">
+            <h4 data-i18n="ap2_h">Size &amp; Match</h4>
+            <p data-i18n="ap2_p">Lay out all press-ons and match each one to your nail. The press-on should cover your nail from side to side without touching skin.</p>
+          </div>
+        </div>
+        <div class="apply-step reveal">
+          <span class="apply-step-num">3</span>
+          <div class="apply-step-content">
+            <h4 data-i18n="ap3_h">Apply Adhesive</h4>
+            <p data-i18n="ap3_p">Use nail glue for a firm, longer-lasting hold (up to 2 weeks), or the included nail tabs for an easy, damage-free wear of 1–3 days. Apply to the natural nail, not the press-on.</p>
+          </div>
+        </div>
+        <div class="apply-step reveal">
+          <span class="apply-step-num">4</span>
+          <div class="apply-step-content">
+            <h4 data-i18n="ap4_h">Press &amp; Hold</h4>
+            <p data-i18n="ap4_p">Place the press-on at the cuticle line and press down firmly for 30 seconds. Avoid water for at least 1 hour after application.</p>
+          </div>
+        </div>
+        <div class="apply-step reveal">
+          <span class="apply-step-num">5</span>
+          <div class="apply-step-content">
+            <h4 data-i18n="ap5_h">Removal</h4>
+            <p data-i18n="ap5_p">Soak in warm soapy water for 5–10 minutes, then gently wiggle the press-on off. Never force or peel — your sets are reusable if removed properly. Store in their original box.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="apply-tips reveal" style="transition-delay:0.2s">
+      <h3 data-i18n-html="tips_title">Tips for <em>Longer Wear</em></h3>
+      <div class="tip-item"><span class="tip-dot">✦</span> <span data-i18n="tip1">Avoid prolonged water exposure and harsh cleaning products — wear gloves when washing dishes.</span></div>
+      <div class="tip-item"><span class="tip-dot">✦</span> <span data-i18n="tip2">Don't use your nails as tools — opening cans or pulling tabs will lift the edges.</span></div>
+      <div class="tip-item"><span class="tip-dot">✦</span> <span data-i18n="tip3">Apply a thin top coat over the edge of the press-on and your natural nail for extra seal.</span></div>
+      <div class="tip-item"><span class="tip-dot">✦</span> <span data-i18n="tip4">If an edge lifts slightly, press it back down with a tiny drop of nail glue immediately.</span></div>
+      <div class="tip-item"><span class="tip-dot">✦</span> <span data-i18n="tip5">For special events, apply the evening before — adhesive bonds stronger after a few hours.</span></div>
+      <div class="tip-item"><span class="tip-dot">✦</span> <span data-i18n="tip6">Your sets are reusable 3–5 times if removed gently and stored flat in their box.</span></div>
+      <div class="info-box">
+        <p data-i18n-html="tips_box"><strong style="color:var(--ink)">First time?</strong> DM me on Instagram — I'm always happy to walk you through the process. First order gets <strong style="color:var(--gold)">10% off</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZING -->
+<section id="sizing" class="section">
+  <div class="reveal">
+    <span class="section-label" data-i18n="sizing_label">Perfect Fit</span>
+    <h2 class="section-title" data-i18n-html="sizing_title">How to Find Your <em>Size</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="sizing-grid">
+    <div class="sizing-visual reveal">
+      <h3 data-i18n="chart_title">Standard Size Reference</h3>
+      <p class="chart-sub" data-i18n="chart_sub">Width measured at the widest point</p>
+      <table class="size-chart">
+        <thead><tr>
+          <th data-i18n="chart_th1">Size</th>
+          <th data-i18n="chart_th2">Width (mm)</th>
+          <th data-i18n="chart_th3">Typically fits</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>0</td><td>17–18 mm</td><td data-i18n="finger_thumb">Thumb</td></tr>
+          <tr><td>1</td><td>16–17 mm</td><td data-i18n="finger_thumb2">Thumb</td></tr>
+          <tr><td>2</td><td>15–16 mm</td><td data-i18n="finger_it">Index / Thumb</td></tr>
+          <tr><td>3</td><td>14–15 mm</td><td data-i18n="finger_im">Index / Middle</td></tr>
+          <tr><td>4</td><td>13–14 mm</td><td data-i18n="finger_mi">Middle / Index</td></tr>
+          <tr><td>5</td><td>12–13 mm</td><td data-i18n="finger_rm">Ring / Middle</td></tr>
+          <tr><td>6</td><td>11–12 mm</td><td data-i18n="finger_ring">Ring</td></tr>
+          <tr><td>7</td><td>10–11 mm</td><td data-i18n="finger_pr">Pinky / Ring</td></tr>
+          <tr><td>8</td><td>9–10 mm</td><td data-i18n="finger_pinky">Pinky</td></tr>
+          <tr><td>9</td><td>8–9 mm</td><td data-i18n="finger_pinky2">Pinky</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sizing-instruction reveal" style="transition-delay:0.15s">
+      <h3 data-i18n-html="measure_title">Measure in <em>3 Steps</em></h3>
+      <p data-i18n="measure_intro">Accurate measurements mean a perfect fit — please measure all 10 nails before ordering. When in between sizes, I recommend sizing up for comfort.</p>
+      <ol class="sizing-steps">
+        <li data-i18n="ms1">Cut a thin strip of paper or use a flexible tape measure.</li>
+        <li data-i18n="ms2">Wrap it around the widest part of your nail from one side wall to the other — don't include the skin on either side.</li>
+        <li data-i18n="ms3">Mark where it meets, then measure the length with a ruler in millimetres. Note all 10 fingers (both hands).</li>
+      </ol>
+      <div class="info-box">
+        <p data-i18n-html="measure_box"><strong style="color:var(--ink)">Not sure?</strong> Send me a photo of your hand alongside a ruler and I'll size you myself — no extra charge.</p>
+        <div style="margin-top:16px;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform" target="_blank" class="service-cta" data-i18n="sizing_cta">Submit Sizes &amp; Order ✦</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="faq-header reveal">
+    <span class="section-label" data-i18n="faq_label">Questions</span>
+    <h2 class="section-title" data-i18n-html="faq_title">Frequently Asked <em>Questions</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q1">How long will my press-ons last?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a1">With nail glue and proper prep (no oils on the nail), sets last 1–2 weeks. With adhesive tabs, expect 1–3 days. Avoiding water and using your nails gently extends wear significantly.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q2">Will press-ons damage my natural nails?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a2">No — if applied and removed correctly. Always soak off gently in warm water; never peel or force them off. The press-ons themselves do not damage nails; only improper removal can cause minor surface wear.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q3">Are the sets reusable?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a3">Yes! With gentle removal and proper storage, sets can be worn 3–5 times. Store them flat in their original box after each use.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q4">How long does a custom order take?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a4">Custom designs typically take 2–3 weeks from the time I receive your measurements and confirm the design. For urgent needs (weddings, events), contact me as early as possible.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q5">Where do you ship?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a5">I ship across Europe. Delivery within Croatia typically takes 2–4 business days; orders to other European countries usually arrive in 5–10 business days. Contact me for a shipping quote to your country.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q6">How do I send my nail measurements?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a6">Use the order form below or DM me on Instagram. I'll send you a simple sizing guide. You can also send a photo of your hand next to a ruler and I'll measure for you.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q7">Can I request a design I saw on Instagram?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a7">Absolutely — send me the reference image and I'll tell you if it's achievable and what the timeline looks like. I welcome inspiration from any source.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q"><span data-i18n="q8">What's the first-order discount?</span><span class="faq-icon">+</span></div>
+      <div class="faq-a" data-i18n="a8">New clients receive 10% off their first order. Just mention it when you get in touch and I'll apply it to your quote.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="reveal">
+    <span class="section-label" data-i18n="contact_label">Get in Touch</span>
+    <h2 class="section-title" data-i18n-html="contact_title">Order or <em>Enquire</em></h2>
+    <div class="divider"></div>
+    <p class="section-body" data-i18n="contact_body">Ready to order, have a question, or want to discuss a custom design? Fill in the form or reach me directly on Instagram — I typically respond within 24 hours.</p>
+  </div>
+  <div class="contact-layout">
+    <div class="contact-info reveal">
+      <h3 data-i18n="contact_h3">Let's Create Something Beautiful</h3>
+      <div class="contact-item">
+        <img src="https://lh3.googleusercontent.com/d/1bBxuBIxvEmm2cF_ZJedPOs7PEX84-BpA=w64" alt="Instagram" class="c-icon" style="height:20px;width:20px;object-fit:contain;border-radius:4px;vertical-align:middle;">
+        <div>Instagram<br><a href="https://instagram.com/mistella_nails">@mistella_nails</a></div>
+      </div>
+      <div class="contact-item">
+        <img src="https://lh3.googleusercontent.com/d/1fhPKAJY8vSVDX8o06p3TAiCQd7hyQ38I=w64" alt="Facebook" class="c-icon" style="height:20px;width:20px;object-fit:contain;border-radius:4px;vertical-align:middle;">
+        <div>Facebook<br><a href="https://www.facebook.com/Mistellanails">facebook.com/Mistellanails</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">✉️</span>
+        <div>Email<br><a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">📍</span>
+        <div data-i18n-html="contact_loc">Based in Croatia<br>Shipping across Europe</div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">⏱</span>
+        <div data-i18n-html="contact_time">Response time<br>Within 24 hours</div>
+      </div>
+      <div class="contact-promo">
+        <p data-i18n-html="contact_promo">✦ First order? Mention it for <strong>10% off</strong>.<br>✦ Custom sets ship in 2–3 weeks.<br>✦ Preset sets ship faster — ask for availability.</p>
+      </div>
+    </div>
+    <div class="order-form reveal" style="transition-delay:0.2s">
+      <div style="background:rgba(245,240,232,0.04);border:1px solid rgba(201,150,58,0.25);padding:8px;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform?embedded=true"
+          width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+          style="display:block;background:transparent;"
+          title="Mistella Order Form">
+          Loading…
+        </iframe>
+      </div>
+      <div style="text-align:center;margin-top:16px;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUJQslo7y-QlkRqcxhpxvHAGtIKdWliMS2AjjxDWxFeb8mvA/viewform" target="_blank" class="btn-primary" data-i18n="f_open">Open Order Form in New Tab ✦</a>
+      </div>
+      <p class="form-note" data-i18n="f_note">I'll respond within 24 hours. For faster replies, DM me directly on Instagram @mistella_nails. ✦ First order: 10% discount.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL FOLLOW CTA -->
+<section id="follow" style="background:var(--ink);padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%, rgba(201,150,58,0.1) 0%, transparent 60%);"></div>
+  <div class="reveal" style="position:relative;">
+    <span class="section-label" data-i18n="follow_label">Stay Inspired</span>
+    <h2 class="section-title" style="color:var(--cream);max-width:640px;margin:0 auto;" data-i18n-html="follow_title">Follow for the <em>Newest Designs</em> &amp; Updates</h2>
+    <div class="divider" style="margin:24px auto;"></div>
+    <p style="font-size:14px;color:rgba(245,240,232,0.55);max-width:460px;margin:0 auto 36px;line-height:1.8;" data-i18n="follow_body">New collections, behind-the-scenes painting process, and first access to limited sets — all on Instagram and Facebook.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://instagram.com/mistella_nails" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;">
+        <img src="https://lh3.googleusercontent.com/d/1bBxuBIxvEmm2cF_ZJedPOs7PEX84-BpA=w64" alt="Instagram" style="height:20px;width:20px;object-fit:contain;border-radius:4px;vertical-align:middle;"> <span data-i18n="follow_ig">Follow on Instagram</span>
+      </a>
+      <a href="https://www.facebook.com/Mistellanails" target="_blank" class="btn-outline" style="display:inline-flex;align-items:center;gap:10px;">
+        <img src="https://lh3.googleusercontent.com/d/1fhPKAJY8vSVDX8o06p3TAiCQd7hyQ38I=w64" alt="Facebook" style="height:20px;width:20px;object-fit:contain;border-radius:4px;vertical-align:middle;"> <span data-i18n="follow_fb">Follow on Facebook</span>
+      </a>
+    </div>
+    <p style="margin-top:28px;font-size:12px;letter-spacing:2px;color:var(--gold);">@mistella_nails</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://lh3.googleusercontent.com/d/1G6le2wZ64tt7wA7_W_1G0cdKC4DOUDHK=w600" alt="Mistella" class="logo-circle" style="height:56px;width:56px;margin-bottom:16px;" onerror="this.style.display='none'"><div class="f-logo" style="display:none;">MISTELLA 🌙</div>
+      <p data-i18n="footer_brand">Handcrafted press-on nail art from Croatia. Every set is painted by hand — made to wear, made to remember.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_nav">Navigate</h4>
+      <ul>
+        <li><a href="#about" data-i18n="fnav1">About</a></li>
+        <li><a href="#services" data-i18n="fnav2">Custom Design</a></li>
+        <li><a href="#services" data-i18n="fnav3">Preset Design</a></li>
+        <li><a href="#apply" data-i18n="fnav4">How to Apply</a></li>
+        <li><a href="#sizing" data-i18n="fnav5">Sizing Guide</a></li>
+        <li><a href="#faq" data-i18n="fnav6">FAQ</a></li>
+        <li><a href="policies.html" data-i18n="fnav7">Policies &amp; Terms</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_find">Find Me</h4>
+      <ul>
+        <li><a href="https://instagram.com/mistella_nails">Instagram @mistella_nails</a></li>
+        <li><a href="https://www.facebook.com/Mistellanails">Facebook</a></li>
+        <li><a href="mailto:Mistella.eu@gmail.com">Mistella.eu@gmail.com</a></li>
+        <li><a href="#contact" data-i18n="footer_form">Order Form</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Mistella · <span data-i18n="footer_country">Croatia</span></span>
+    <span style="color:var(--muted)" data-i18n-html="footer_love">Handcrafted with <span style="color:var(--rose)">♥</span> — every single set.</span>
+  </div>
+</footer>
+
+<script>
+/* ───────────────────────────────────────────────
+   TRANSLATIONS
+─────────────────────────────────────────────── */
+const T = {
+en: {}, /* English = default text already in HTML, captured on load */
+hr: {
+  nav_about: "O meni",
+  nav_services: "Usluge",
+  nav_apply: "Kako nanijeti",
+  nav_sizing: "Veličine",
+  nav_faq: "Pitanja",
+  nav_cta: "Naruči",
+  hero_eyebrow: "Ručno rađeni press-on nokti · Hrvatska",
+  hero_sub: "Personalizirani nail art, ručno izrađen prema tvom stilu i trenucima. Višekratna upotreba, nježno prema prirodnim noktima.",
+  hero_btn1: "Pogledaj kolekcije",
+  hero_btn2: "Zatraži ponudu",
+  hero_scroll: "skrolaj",
+  trust1: "100% ručna izrada",
+  trust2: "Višekratni setovi",
+  trust3: "Sigurni materijali",
+  trust4: "Izrada po mjeri",
+  trust5: "Dostava diljem Europe",
+  gal1: "Set za godišnjicu · Smaragd",
+  gal2: "Crna kraljica Medvedgrada",
+  gal3: "Hrvatski vjenčani set",
+  gal4: "Rose Lace",
+  gal5: "Satin Dreams",
+  photo_placeholder: "tvoja fotografija",
+  photo_placeholder2: "fotografija 2",
+  about_label: "Umjetnica",
+  about_title: "Iza svakog nokta<br>krije se <em>priča</em>",
+  about_body: "Ja sam Mistella — umjetnica ručno rađenih press-on noktiju iz Hrvatske. Svaki set koji izradim oslikan je rukom, inspiriran umjetnošću, poviješću i pričama koje moje klijentice nose sa sobom.<br><br>Moji nokti su više od dodatka — oni su nosiva umjetnost. Bilo da želiš nešto tamno i mitološko, čipkasto i romantično ili tiho luksuzno, svaki set izrađujem s jednakom pažnjom i preciznošću.",
+  about_quote: "\"Tvoja priča, tvoji nokti. ✨ Ručno izrađujem setove samo za tebe — prilagođene veličinom, bojom i detaljima tvom stilu ili posebnoj prigodi.\"",
+  svc_label: "Što nudim",
+  svc_title: "Odaberi svoje <em>iskustvo</em>",
+  svc1_tag: "Po mjeri",
+  svc1_title: "<em>Custom</em> dizajn",
+  svc1_tagline: "Tvoja priča, tvoji nokti.",
+  svc1_desc: "Set izrađen samo za tebe — prilagođen veličinom, bojom i svakim detaljem tvom stilu ili posebnoj prigodi. Savršen kada želiš nešto osobno i istinski jedinstveno.",
+  svc1_f1: "Potpuno personalizirano savjetovanje o dizajnu",
+  svc1_f2: "Izrada točno prema mjerama tvojih noktiju",
+  svc1_f3: "Ručno oslikano — ne postoje dva ista seta",
+  svc1_f4: "Savršeno za vjenčanja, evente i posebne trenutke",
+  svc1_f5: "Izrada 2–3 tjedna",
+  svc1_f6: "10% popusta na prvu narudžbu",
+  svc1_cta: "Pregledaj i naruči",
+  svc2_tag: "Spremno za narudžbu",
+  svc2_title: "<em>Preset</em> dizajn",
+  svc2_tagline: "Ručno rađena elegancija, uvijek dostupna.",
+  svc2_desc: "Gotove kolekcije inspirirane umjetnošću, prirodom i bezvremenskom ljepotom. Svaki set je ručno izrađen i spreman za narudžbu — idealno ako želiš Mistella nokte bez čekanja na custom dizajn.",
+  svc2_f1: "Ručno izrađeno i spremno za slanje",
+  svc2_f2: "Prilagođeno tvojim mjerama pri narudžbi",
+  svc2_f3: "Inspirirano umjetnošću, prirodom i bezvremenskom ljepotom",
+  svc2_f4: "Brža izrada od custom narudžbi",
+  svc2_f5: "Nove kolekcije redovito",
+  svc2_f6: "10% popusta na prvu narudžbu",
+  svc2_cta: "Pregledaj i naruči",
+  order_label: "Proces",
+  order_title: "Kako <em style=\"color:var(--rose)\">naručiti</em>",
+  step1_h: "Javi se",
+  step1_p: "Naruči putem Instagrama @mistella_nails, Facebooka ili obrasca na ovoj stranici. Reci mi svoju viziju, prigodu i željeni stil — kontaktirat ću te za potvrdu svih detalja prije početka izrade.",
+  step2_h: "Pošalji mjere",
+  step2_p: "Poslat ću ti vodič za mjerenje. Izmjeri svaki nokat krojačkim metrom ili trakom papira za savršen fit.",
+  step3_h: "Dizajn i izrada",
+  step3_p: "Ručno izrađujem tvoj set, oslikavam svaki detalj i šaljem ti novosti. Custom setovi traju 2–3 tjedna; preset setovi stižu brže.",
+  step4_h: "Primi i nosi",
+  step4_p: "Tvoji nokti stižu zapakirani u kutijici za uspomenu, označeni po veličini. Nanesi i nosi — ili ih sačuvaj za savršen trenutak.",
+  apply_label: "Vodič za nanošenje",
+  apply_title: "Kako <em>nanijeti</em>",
+  ap1_h: "Pripremi nokte",
+  ap1_p: "Ukloni stari lak. Nježno potisni kožicu, zatim lagano ispoliraj površinu prirodnih noktiju. Prebriši blazinicom i alkoholom kako bi uklonila sve masnoće — ovo je najvažniji korak za dugo nošenje.",
+  ap2_h: "Provjeri veličine",
+  ap2_p: "Rasporedi sve press-on nokte i usporedi svaki sa svojim noktom. Press-on treba pokrivati nokat od ruba do ruba bez dodirivanja kože.",
+  ap3_h: "Nanesi ljepilo",
+  ap3_p: "Koristi ljepilo za nokte za čvrsto, dugotrajnije držanje (do 2 tjedna), ili priložene ljepljive trakice za jednostavno nošenje 1–3 dana bez oštećenja. Nanesi na prirodni nokat, ne na press-on.",
+  ap4_h: "Pritisni i drži",
+  ap4_p: "Postavi press-on uz liniju kožice i čvrsto pritisni 30 sekundi. Izbjegavaj vodu najmanje 1 sat nakon nanošenja.",
+  ap5_h: "Skidanje",
+  ap5_p: "Namoči u toploj sapunici 5–10 minuta, zatim nježno pomiči press-on dok ne sklizne. Nikad ne skidaj na silu — setovi su višekratni ako se pravilno skinu. Čuvaj ih u originalnoj kutijici.",
+  tips_title: "Savjeti za <em>duže nošenje</em>",
+  tip1: "Izbjegavaj dugotrajno izlaganje vodi i agresivna sredstva za čišćenje — nosi rukavice pri pranju suđa.",
+  tip2: "Ne koristi nokte kao alat — otvaranje limenki ili povlačenje podiže rubove.",
+  tip3: "Nanesi tanak sloj nadlaka preko ruba press-ona i prirodnog nokta za dodatno brtvljenje.",
+  tip4: "Ako se rub lagano podigne, odmah ga pritisni s kapljicom ljepila za nokte.",
+  tip5: "Za posebne prigode, nanesi nokte večer prije — ljepilo se jače veže nakon nekoliko sati.",
+  tip6: "Setovi su višekratni 3–5 puta ako se nježno skinu i čuvaju ravno u kutijici.",
+  tips_box: "<strong style=\"color:var(--ink)\">Prvi put?</strong> Pošalji mi DM na Instagramu — rado ću te provesti kroz proces. Prva narudžba ima <strong style=\"color:var(--gold)\">10% popusta</strong>.",
+  sizing_label: "Savršen fit",
+  sizing_title: "Kako pronaći svoju <em>veličinu</em>",
+  chart_title: "Standardne veličine",
+  chart_sub: "Širina mjerena na najširem dijelu",
+  chart_th1: "Veličina",
+  chart_th2: "Širina (mm)",
+  chart_th3: "Obično odgovara",
+  finger_thumb: "Palac",
+  finger_thumb2: "Palac",
+  finger_it: "Kažiprst / Palac",
+  finger_im: "Kažiprst / Srednji",
+  finger_mi: "Srednji / Kažiprst",
+  finger_rm: "Prstenjak / Srednji",
+  finger_ring: "Prstenjak",
+  finger_pr: "Mali prst / Prstenjak",
+  finger_pinky: "Mali prst",
+  finger_pinky2: "Mali prst",
+  measure_title: "Izmjeri u <em>3 koraka</em>",
+  measure_intro: "Točne mjere znače savršen fit — molim te izmjeri svih 10 noktiju prije narudžbe. Ako si između dvije veličine, preporučujem veću zbog udobnosti.",
+  ms1: "Izreži tanku traku papira ili koristi krojački metar.",
+  ms2: "Omotaj je oko najšireg dijela nokta od jednog ruba do drugog — bez kože sa strane.",
+  ms3: "Označi gdje se spaja, zatim izmjeri duljinu ravnalom u milimetrima. Zabilježi svih 10 prstiju (obje ruke).",
+  measure_box: "<strong style=\"color:var(--ink)\">Nisi sigurna?</strong> Pošalji mi fotografiju ruke uz ravnalo i odredit ću veličine umjesto tebe — bez dodatne naplate.",
+  faq_label: "Pitanja",
+  faq_title: "Često postavljana <em>pitanja</em>",
+  q1: "Koliko dugo traju press-on nokti?",
+  a1: "Uz ljepilo za nokte i pravilnu pripremu (bez masnoća na noktu), setovi traju 1–2 tjedna. S ljepljivim trakicama, očekuj 1–3 dana. Izbjegavanje vode i nježno korištenje noktiju znatno produljuje nošenje.",
+  q2: "Hoće li press-on nokti oštetiti moje prirodne nokte?",
+  a2: "Ne — ako se pravilno nanesu i skinu. Uvijek ih nježno namoči u toploj vodi; nikad ih ne guli i ne skidaj na silu. Press-on nokti sami po sebi ne oštećuju nokte; samo nepravilno skidanje može uzrokovati manja površinska oštećenja.",
+  q3: "Jesu li setovi za višekratnu upotrebu?",
+  a3: "Da! Uz nježno skidanje i pravilno čuvanje, setovi se mogu nositi 3–5 puta. Nakon svake upotrebe spremi ih ravno u originalnu kutijicu.",
+  q4: "Koliko traje izrada custom narudžbe?",
+  a4: "Custom dizajni obično traju 2–3 tjedna od trenutka kada primim tvoje mjere i potvrdimo dizajn. Za hitne prigode (vjenčanja, eventi), javi mi se što ranije.",
+  q5: "Gdje sve šalješ?",
+  a5: "Šaljem diljem Europe. Dostava unutar Hrvatske obično traje 2–4 radna dana; narudžbe u druge europske zemlje stižu za 5–10 radnih dana. Javi mi se za ponudu dostave u tvoju zemlju.",
+  q6: "Kako poslati mjere noktiju?",
+  a6: "Koristi obrazac ispod ili mi pošalji DM na Instagramu. Poslat ću ti jednostavan vodič za mjerenje. Možeš poslati i fotografiju ruke uz ravnalo pa ću izmjeriti umjesto tebe.",
+  q7: "Mogu li naručiti dizajn koji sam vidjela na Instagramu?",
+  a7: "Naravno — pošalji mi referentnu sliku i reći ću ti je li izvedivo i koliko bi trajalo. Inspiracija iz bilo kojeg izvora je dobrodošla.",
+  q8: "Koji je popust za prvu narudžbu?",
+  a8: "Nove klijentice dobivaju 10% popusta na prvu narudžbu. Samo to spomeni kad se javiš i uračunat ću ga u ponudu.",
+  contact_label: "Kontakt",
+  contact_title: "Naruči ili <em>pitaj</em>",
+  contact_body: "Spremna za narudžbu, imaš pitanje ili želiš razgovarati o custom dizajnu? Ispuni obrazac ili mi se javi direktno na Instagramu — obično odgovaram unutar 24 sata.",
+  contact_h3: "Stvorimo nešto lijepo",
+  contact_loc: "Hrvatska<br>Dostava diljem Europe",
+  contact_time: "Vrijeme odgovora<br>Unutar 24 sata",
+  contact_promo: "✦ Prva narudžba? Spomeni za <strong>10% popusta</strong>.<br>✦ Custom setovi stižu za 2–3 tjedna.<br>✦ Preset setovi stižu brže — pitaj za dostupnost.",
+  f_name: "Ime i prezime *",
+  f_name_ph: "Ime i prezime",
+  f_email: "Email *",
+  f_ig: "Instagram profil",
+  f_ig_ph: "@korisnicko_ime (neobavezno)",
+  f_type: "Vrsta narudžbe *",
+  f_select: "Odaberi...",
+  f_type1: "Custom dizajn",
+  f_type2: "Preset dizajn",
+  f_type3: "Nisam sigurna — želim razgovarati",
+  f_occasion: "Prigoda / Stilska inspiracija",
+  f_occasion_ph: "npr. Vjenčanje, svakodnevno nošenje, gotički, romantični…",
+  f_shape: "Željeni oblik nokta",
+  f_select2: "Odaberi...",
+  f_shape1: "Badem (Almond)",
+  f_shape2: "Ovalni",
+  f_shape3: "Četvrtasti",
+  f_shape4: "Coffin / Balerina",
+  f_shape5: "Squoval",
+  f_shape6: "Nisam sigurna",
+  f_length: "Željena duljina nokta",
+  f_select3: "Odaberi...",
+  f_len1: "Kratki",
+  f_len2: "Srednji",
+  f_len3: "Dugi",
+  f_len4: "Ekstra dugi",
+  f_msg: "Tvoja poruka / Ideje za dizajn",
+  f_msg_ph: "Opiši svoju viziju, boje, reference, rok ili bilo koja pitanja…",
+  f_submit: "Pošalji upit ✦",
+  f_note: "Odgovorit ću unutar 24 sata. Za brži odgovor, pošalji mi DM direktno na Instagramu @mistella_nails. ✦ Prva narudžba: 10% popusta.",
+  footer_brand: "Ručno rađeni press-on nail art iz Hrvatske. Svaki set je oslikan rukom — za nošenje, za pamćenje.",
+  footer_nav: "Navigacija",
+  fnav1: "O meni",
+  fnav2: "Custom dizajn",
+  fnav3: "Preset dizajn",
+  fnav4: "Kako nanijeti",
+  fnav5: "Vodič za veličine",
+  fnav6: "Pitanja",
+  fnav7: "Pravila i uvjeti",
+  footer_find: "Pronađi me",
+  footer_form: "Obrazac za narudžbu",
+  footer_country: "Hrvatska",
+  footer_love: "Ručno izrađeno s <span style=\"color:var(--rose)\">♥</span> — svaki pojedini set.",
+  follow_label: "Ostani inspirirana",
+  follow_title: "Prati nas za <em>najnovije dizajne</em> i novosti",
+  follow_body: "Nove kolekcije, proces oslikavanja iza kulisa i prvi pristup limitiranim setovima — sve na Instagramu i Facebooku.",
+  follow_ig: "Prati na Instagramu",
+  follow_fb: "Prati na Facebooku",
+  f_open: "Otvori obrazac u novoj kartici ✦",
+  sizing_cta: "Pošalji mjere i naruči ✦"
+}};
+
+let currentLang = 'en';
+
+/* Capture English defaults from the HTML on load */
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  T.en[el.getAttribute('data-i18n')] = el.textContent;
+});
+document.querySelectorAll('[data-i18n-html]').forEach(el => {
+  T.en[el.getAttribute('data-i18n-html')] = el.innerHTML;
+});
+document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+  T.en[el.getAttribute('data-i18n-ph')] = el.getAttribute('placeholder');
+});
+
+function setLang(lang) {
+  currentLang = lang;
+  const dict = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+  });
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+  });
+}
+
+
+/* Scroll reveal */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
